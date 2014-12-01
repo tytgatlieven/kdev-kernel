@@ -406,8 +406,8 @@ bool KDevKernelPlugin::isValid(const KDevelop::Path &url, const bool isFolder, K
     if (valid);
     // Documentation too
     else if (lFile.startsWith(KUrl(project->folder(), "Documentation/").toLocalFile())) valid = true;
-    // Same thing for .h files and Makefiles
-    else if (lFile.endsWith(".h") || lFile.endsWith("/Makefile")) valid = true;
+    // Same thing for .h files and Makefiles and dtsi included files
+    else if (lFile.endsWith(".h") || lFile.endsWith("/Makefile") || lFile.endsWith(".dtsi")) valid = true;
     // And KConfig files
     else if (lFile.contains(Kconf)) valid = true;
     else if (validFiles.validFiles.contains(file)) valid = true;
