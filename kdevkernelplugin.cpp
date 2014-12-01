@@ -311,6 +311,10 @@ KDevelop::ProjectFolderItem *KDevKernelPlugin::import(KDevelop::IProject *projec
         _validFiles[project][archUrl].lastUpdate = QDateTime::currentDateTime();
         _validFiles[project][archUrl].validFiles << arch;
 	_validFiles[project][archArchUrl].validFiles << "boot";
+	if (config.hasKey(KERN_DEFCONFIG)) {
+	  QString defconfig(config.readEntry(KERN_DEFCONFIG, ""));
+	  _validFiles[project][archArchUrl].validFiles << defconfig;
+	}
     }
 
     /*
